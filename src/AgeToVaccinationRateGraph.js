@@ -19,16 +19,19 @@ export const AgeToVaccinationRateGraph = () => {
     }, [rawData]);
 
     return manipulatedData ? <Chart
-        width={'500px'}
-        height={'300px'}
+        width={'800px'}
+        height={'500px'}
+        chartArea={{ width: "100%", height: "100%" }}
         chartType="ScatterChart"
         loader={<div>Loading Chart</div>}
         data={[
-            ['Age', 'Vaccinated'],
-            ...manipulatedData,
+            // ['Age', 'Vaccinated'],
+            // ...manipulatedData,
+            ['x', ...manipulatedData.placeNames],
+            ...manipulatedData.data,
         ]}
         options={{
-            title: 'Sydney Age vs Vaccination Rate',
+            title: 'Age vs Vaccination Rate',
             hAxis: { title: 'Median age' },
             vAxis: { title: '% at least 1 dose' },
             // legend: 'none',
@@ -41,9 +44,17 @@ export const AgeToVaccinationRateGraph = () => {
 };
 
 function manipulate({ Data }) {
-    return Data
-        .filter(({ Area }) => Area.Name4.includes('Sydney'))
-        .map(({ Area, CovidVaccine }) => {
-            return [Area.CensusStats.Age.Median, CovidVaccine.Num1Dose]
+    const onlySydney = Data.filter(({ Area }) => Area.Name4.includes('Sydney'))
+    const data = onlySydney
+        .map(({ Area, CovidVaccine }, index) => {
+            const row = new Array(onlySydney.length + 1).fill(null);
+            row[0] = Area.CensusStats.Age.Median;
+            row[index + 1] = CovidVaccine.Num1Dose;
+            return row;
         });
+
+    return {
+        data,
+        placeNames: onlySydney.map(({ Area }) => Area.Name4.replace("Sydney - ", ""))
+    }
 }
