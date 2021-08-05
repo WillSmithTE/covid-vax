@@ -32,6 +32,7 @@ export const AgeToVaccinationRateGraph = () => {
     return manipulatedData ?
         <div>
             <Chart
+                style={{ margin: '0 auto' }}
                 width={'800px'}
                 height={'500px'}
                 chartArea={{ width: "100%", height: "100%" }}
@@ -44,9 +45,9 @@ export const AgeToVaccinationRateGraph = () => {
                     ]
                 }
                 options={{
-                    title: `Age vs Vaccination Rate (r = ${corrCoeff})`,
                     hAxis: { title: 'Median age' },
                     vAxis: { title: '% at least 1 dose' },
+                    title: `Age vs Vaccination Rate (r = ${corrCoeff})`,
                     trendlines: {
                         0: { type: 'linear', showR2: false, visibleInLegend: false, lineWidth: 3, pointSize: 0, }
                     },
@@ -58,7 +59,7 @@ export const AgeToVaccinationRateGraph = () => {
                 }}
                 rootProps={{ 'data-testid': '1' }}
             />
-        </div> : <Loading/>
+        </div> : <Loading />
 };
 
 function manipulate({ Data }) {
