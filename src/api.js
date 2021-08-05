@@ -7,13 +7,13 @@ const databaseFileName = 'database.json';
 export const api = {
     getAll: async () => {
         if (isEmpty(database)) {
-            console.error('getting new')
+            console.log('getting new')
             const response = await fetch(`${BASE_URL}/api/areas`);
             const jsonResponse = await response.json();
             save(jsonResponse);
             return jsonResponse;
         } else {
-            console.error('used saved')
+            console.log('used saved')
             return database;
         }
     }
