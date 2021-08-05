@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import Chart from "react-google-charts";
 import { api } from "./api";
 import Statistics from 'statistics.js';
-import jStat from 'jstat';
 import { Loading } from "./Loading";
 
-export const AgeToVaccinationRateGraph = () => {
+export const AgeToVaccinationRate = () => {
 
     const [rawData, setRawData] = useState(undefined)
     const [manipulatedData, setManipulatedData] = useState(undefined)
@@ -30,10 +29,10 @@ export const AgeToVaccinationRateGraph = () => {
     }, [manipulatedData]);
 
     return manipulatedData ?
-        <div>
+        <div style={{flexGrow: 1, width: '40%', minWidth: '350px', padding: '10px' }}>
             <Chart
-                style={{ margin: '0 auto' }}
-                width={'800px'}
+                style={{ margin: '0 auto', }}
+                // width={'800px'}
                 height={'500px'}
                 chartArea={{ width: "100%", height: "100%" }}
                 chartType="LineChart"
