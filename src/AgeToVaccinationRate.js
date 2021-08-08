@@ -1,10 +1,11 @@
 import { VaccinationGraph } from "./VaccinationGraph";
 
-export const AgeToVaccinationRate = () => {
+export const AgeToVaccinationRate = ({rawData}) => {
 
     return <VaccinationGraph
-        title='Age vs Vaccination Rate'
+        title='Vaccination Rate vs Age'
         yTitle='Median age'
         getY={(Area) => Area.CensusStats.Age.Median}
+        rawData={rawData}
     />
 };

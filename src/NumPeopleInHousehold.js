@@ -1,10 +1,11 @@
 import { VaccinationGraph } from "./VaccinationGraph";
 
-export const NumPeopleInHousehold = () => {
+export const NumPeopleInHousehold = ({rawData}) => {
 
     return <VaccinationGraph
-        title='Household Size vs Salary'
+        title='Vaccination Rate vs Household Size'
         yTitle='Average household size'
         getY={(Area) => Area.CensusStats.AvgPeoplePerHousehold}
+        rawData={rawData}
     />
 };

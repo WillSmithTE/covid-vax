@@ -4,15 +4,10 @@ import { api } from "./api";
 import Statistics from 'statistics.js';
 import { Loading } from "./Loading";
 
-export const VaccinationGraph = ({title, yTitle, getY}) => {
+export const VaccinationGraph = ({rawData, title, yTitle, getY}) => {
 
-    const [rawData, setRawData] = useState(undefined)
     const [manipulatedData, setManipulatedData] = useState(undefined)
     const [corrCoeff, setCorrCoeff] = useState(undefined)
-
-    useEffect(() => {
-        api.getAll().then(setRawData);
-    }, []);
 
     useEffect(() => {
         if (rawData) {
