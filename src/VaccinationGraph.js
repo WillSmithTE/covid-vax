@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Chart from "react-google-charts";
-import { api } from "./api";
 import Statistics from 'statistics.js';
 import { Loading } from "./Loading";
 
