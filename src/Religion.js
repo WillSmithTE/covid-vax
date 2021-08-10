@@ -44,7 +44,7 @@ function manipulate({ Computed }) {
     const correlations = Computed.ReligionCorrelations;
     const rows = [];
     for (const [key, value] of Object.entries(correlations)) {
-        let cleanedReligionName = key.replace("_P", "");
+        let cleanedReligionName = key.replace("_P", "").replace("Othr_Rel_", "");
         if (cleanedReligionName === 'SB_OSB_NRA_NR') {
             cleanedReligionName = 'None'
         } else if (cleanedReligionName === 'Christianity_Tot') {
@@ -56,5 +56,5 @@ function manipulate({ Computed }) {
     rows.sort((a, b) => a[1] > b[1] ? 1 : -1);
 
     return rows
-        .filter(([religion]) => ['None', 'Christianity', 'Islam', 'Judaism', 'Hinduism', 'Buddhism'].includes(religion))
+        .filter(([religion]) => ['None', 'Christianity', 'Islam', 'Judaism', 'Hinduism', 'Buddhism', 'Sikhism'].includes(religion))
 }

@@ -38,9 +38,9 @@ export const VaccinationGraph = ({rawData, title, yTitle, getY}) => {
                     ]
                 }
                 options={{
-                    hAxis: { title: '% at least 1 dose' },
-                    vAxis: { title: yTitle },
-                    title: `${title} (r = ${corrCoeff})`,
+                    hAxis: { title: yTitle },
+                    vAxis: { title: '% at least 1 dose' },
+                    title: `${title} vs Vaccination Rate (r = ${corrCoeff})`,
                     trendlines: {
                         0: { type: 'linear', showR2: false, visibleInLegend: false, lineWidth: 3, pointSize: 0, }
                     },
@@ -61,9 +61,9 @@ function manipulate({ Data }, getY) {
         .map(({ Area, CovidVaccine }, index) => {
             const row = new Array(onlySydney.length + 2).fill(null);
             const yData = getY(Area, CovidVaccine)
-            row[0] = CovidVaccine.Num1Dose
-            row[1] = yData
-            row[index + 2] = yData
+            row[0] = yData
+            row[1] = CovidVaccine.Num1Dose
+            row[index + 2] = CovidVaccine.Num1Dose
             return row;
         });
 

@@ -6,7 +6,6 @@ export const Ancestry = ({ rawData, }) => {
 
     const [manipulatedData, setManipulatedData] = useState(undefined)
 
-    console.error({rawData})
     useEffect(() => {
         if (rawData) {
             const manipulated = manipulate(rawData);
@@ -19,7 +18,7 @@ export const Ancestry = ({ rawData, }) => {
             <Chart
                 style={{ margin: '0 auto', }}
                 height={'500px'}
-                chartArea={{ width: "100%", height: "100%" }}
+                chartArea={{ width: "100%", height: "100%", left: 10, top: 20 }}
                 chartType="ColumnChart"
                 loader={<Loading />}
                 data={
