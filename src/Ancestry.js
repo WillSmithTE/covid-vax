@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import Chart from "react-google-charts";
 import { Loading } from "./Loading";
 
-export const Religion = ({ rawData, }) => {
+export const Ancestry = ({ rawData, }) => {
 
     const [manipulatedData, setManipulatedData] = useState(undefined)
 
+    console.error({rawData})
     useEffect(() => {
         if (rawData) {
             const manipulated = manipulate(rawData);
@@ -23,15 +24,15 @@ export const Religion = ({ rawData, }) => {
                 loader={<Loading />}
                 data={
                     [
-                        ['Religion', 'Correlation'],
+                        ['Ancestry', 'Correlation'],
                         ...manipulatedData,
                     ]
                 }
                 options={{
                     legend: 'none',
-                    hAxis: { title: 'Religion' },
+                    hAxis: { title: 'Ancestry' },
                     vAxis: { title: 'Correlation Coefficient (r)' },
-                    title: `Correlation Between Religion and Vaccination Rate`,
+                    title: `Correlation Between Ancestry and Vaccination Rate`,
                     chartArea: { width: '50%', height: '50%' },
 
                 }}
@@ -41,20 +42,15 @@ export const Religion = ({ rawData, }) => {
 };
 
 function manipulate({ Computed }) {
-    const correlations = Computed.ReligionCorrelations;
+    const correlations = Computed.AncestryCorrelations;
     const rows = [];
     for (const [key, value] of Object.entries(correlations)) {
-        let cleanedReligionName = key.replace("_P", "");
-        if (cleanedReligionName === 'SB_OSB_NRA_NR') {
-            cleanedReligionName = 'None'
-        } else if (cleanedReligionName === 'Christianity_Tot') {
-            cleanedReligionName = 'Christianity'
-        }
+        let cleanedReligionName = key.replace("_Tot_Resp", "");
         rows.push([cleanedReligionName, value]);
     };
 
     rows.sort((a, b) => a[1] > b[1] ? 1 : -1);
 
     return rows
-        .filter(([religion]) => ['None', 'Christianity', 'Islam', 'Judaism', 'Hinduism', 'Buddhism'].includes(religion))
+        // .filter(([religion]) => ['None', 'Christianity', 'Islam', 'Judaism', 'Hinduism', 'Buddhism'].includes(religion))
 }
