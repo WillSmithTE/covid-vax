@@ -1,8 +1,8 @@
-import { VaccinationGraph } from "./VaccinationGraph";
+import { ScatterPlot } from "./ScatterPlot";
 
 export const MotorVehicles = ({rawData}) => {
 
-    return <VaccinationGraph
+    return <ScatterPlot
         title='Motor Vehicles per Dwelling'
         yTitle='Average number motor vehicles per dwelling'
         getY={(Area) => Area.CensusStats.AverageMotorVehiclesPerDwelling}

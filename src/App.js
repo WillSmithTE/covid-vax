@@ -1,13 +1,13 @@
 import './App.css';
-import { AgeToVaccinationRate } from './AgeToVaccinationRate';
-import { SalaryToVaccinationRate } from './SalaryToVaccinationRate';
-import { NumPeopleInHousehold } from './NumPeopleInHousehold';
-import { Religion } from './Religion';
+import { AgeToVaccinationRate } from './scatterPlots/AgeToVaccinationRate';
+import { SalaryToVaccinationRate } from './scatterPlots/SalaryToVaccinationRate';
+import { NumPeopleInHousehold } from './scatterPlots/NumPeopleInHousehold';
+import { Religion } from './barGraphs/Religion';
 import { useEffect, useState } from 'react';
 import { api } from './api';
-import { MotorVehicles } from './MotorVehicles';
-import { HoursWorked } from './HoursWorked';
-import { Ancestry } from './Ancestry';
+import { MotorVehicles } from './scatterPlots/MotorVehicles';
+import { HoursWorked } from './scatterPlots/HoursWorked';
+import { Ancestry } from './barGraphs/Ancestry';
 
 const App = () => {
   const [rawData, setRawData] = useState(undefined)

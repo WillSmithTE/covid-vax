@@ -1,8 +1,8 @@
-import { VaccinationGraph } from "./VaccinationGraph";
+import { ScatterPlot } from "./ScatterPlot";
 
 export const NumPeopleInHousehold = ({rawData}) => {
 
-    return <VaccinationGraph
+    return <ScatterPlot
         title='Household Size'
         yTitle='Average household size'
         getY={(Area) => Area.CensusStats.AvgPeoplePerHousehold}

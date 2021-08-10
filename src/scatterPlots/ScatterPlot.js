@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Chart from "react-google-charts";
 import Statistics from 'statistics.js';
-import { Loading } from "./Loading";
+import { Loading } from "../Loading";
 
-export const VaccinationGraph = ({rawData, title, yTitle, getY}) => {
+export const ScatterPlot = ({rawData, title, yTitle, getY}) => {
 
     const [manipulatedData, setManipulatedData] = useState(undefined)
     const [corrCoeff, setCorrCoeff] = useState(undefined)
