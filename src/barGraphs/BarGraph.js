@@ -9,6 +9,7 @@ export const BarGraph = ({ rawData, manipulate, title, xTitle}) => {
     useEffect(() => {
         if (rawData) {
             const manipulated = manipulate(rawData);
+            manipulated.sort((a, b) => a[1] > b[1] ? 1 : -1);
             setManipulatedData(manipulated)
         }
     }, [rawData, manipulate]);
@@ -32,7 +33,7 @@ export const BarGraph = ({ rawData, manipulate, title, xTitle}) => {
                     hAxis: { title: xTitle },
                     vAxis: { title: 'Correlation Coefficient (r)' },
                     title: `Correlation Between ${title} and Vaccination Rate`,
-                    chartArea: { width: '75%', height: '75%' },
+                    chartArea: { width: '75%', height: '70%' },
 
                 }}
                 rootProps={{ 'data-testid': '1' }}

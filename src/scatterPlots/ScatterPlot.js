@@ -49,6 +49,7 @@ export const ScatterPlot = ({rawData, title, yTitle, getY}) => {
                     series: {
                         0: { pointSize: 0, visibleInLegend: false },
                     },
+                    chartArea: { width: '60%', height: '70%' },
                 }}
                 rootProps={{ 'data-testid': '1' }}
             />

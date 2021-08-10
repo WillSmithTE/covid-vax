@@ -18,8 +18,6 @@ function manipulate({ Computed }) {
         rows.push([cleanedReligionName, value]);
     };
 
-    rows.sort((a, b) => a[1] > b[1] ? 1 : -1);
 
     return rows
-    // .filter(([religion]) => ['None', 'Christianity', 'Islam', 'Judaism', 'Hinduism', 'Buddhism'].includes(religion))
 }
