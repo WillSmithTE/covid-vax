@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/covid-vax/static/css/main.54da8c8c.chunk.css",
-    "main.js": "/covid-vax/static/js/main.a5810529.chunk.js",
-    "main.js.map": "/covid-vax/static/js/main.a5810529.chunk.js.map",
+    "main.js": "/covid-vax/static/js/main.f5ef335d.chunk.js",
+    "main.js.map": "/covid-vax/static/js/main.f5ef335d.chunk.js.map",
     "runtime-main.js": "/covid-vax/static/js/runtime-main.6f318da5.js",
     "runtime-main.js.map": "/covid-vax/static/js/runtime-main.6f318da5.js.map",
     "static/js/2.5d6a6b5c.chunk.js": "/covid-vax/static/js/2.5d6a6b5c.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.6f318da5.js",
     "static/js/2.5d6a6b5c.chunk.js",
     "static/css/main.54da8c8c.chunk.css",
-    "static/js/main.a5810529.chunk.js"
+    "static/js/main.f5ef335d.chunk.js"
   ]
 }
